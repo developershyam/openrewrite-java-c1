@@ -44,10 +44,14 @@ dependencies {
 }
 
 rewrite {
+    //Imperative recipes from custume recipe jar
      //activeRecipe("com.sample.r1.MethodAddRecipe", "com.sample.r1.ExpandCustomerInfo")
+     //Declarative recipes from custume recipe jar
+     activeRecipe("com.sample.MyTestRecipe11")
+     // Build declarative recipe in yml using composite recipe
      //activeRecipe("com.sample.MyTestRecipe1")
      //activeRecipe("com.sample.MyTestRecipe2")
-     activeRecipe("com.sample.GradleDependencyRecipe")
+     //activeRecipe("com.sample.GradleDependencyRecipe")
      
 
 }
