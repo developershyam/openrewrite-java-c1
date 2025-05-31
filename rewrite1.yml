@@ -1,0 +1,9 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: com.sample.GradleDependencyExample
+displayName: Add Gradle dependency example
+recipeList:
+  - org.openrewrite.gradle.UpgradeTransitiveDependencyVersion:
+      groupId: org.apache.poi
+      artifactId: poi
+      version: 5.4.0
+      onlyForConfigurations: implementation

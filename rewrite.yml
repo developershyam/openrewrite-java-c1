@@ -1,0 +1,8 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: com.sample.MyTestRecipe
+recipeList:
+  - com.sample.r1.ExpandCustomerInfo
+  - com.sample.r1.MethodAddRecipe:
+      fullyQualifiedClassName: com.sample.FooBar
+      methodName: hello
+  
