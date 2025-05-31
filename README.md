@@ -43,3 +43,14 @@ rewrite {
      activeRecipe("com.sample.MyTestRecipe1")
 }
 ```
+
+# Hack for non compiling code
+
+Add code as class filed in FooBar
+```java
+com.sample.NoExistClass noExistClass;
+```
+
+```bash
+gradle rewriteRun -x compileJava
+```
