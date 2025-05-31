@@ -1,4 +1,8 @@
 
+# Description
+This is project to test open rewrite recipes.
+Used another project __openrewrite-java-r1__ project as dependencies so download that and publish to maven local first.
+
 # Run recipes with gradle build configuration
 ```gradle
 rewrite {
