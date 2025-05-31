@@ -1,8 +1,57 @@
 type: specs.openrewrite.org/v1beta/recipe
-name: com.sample.MyTestRecipe
+name: com.sample.MyTestRecipe1
 recipeList:
   - com.sample.r1.ExpandCustomerInfo
   - com.sample.r1.MethodAddRecipe:
       fullyQualifiedClassName: com.sample.FooBar
       methodName: hello
+  - com.sample.r1.MethodAddWithPramRecipe:
+      fullyQualifiedClassName: com.sample.FooBar
+      methodName: myTestMethod  
+
+---
+
+type: specs.openrewrite.org/v1beta/recipe
+name: com.sample.MyTestRecipe2
+recipeList:
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: com.sample.FooBar baz(String, int)
+      newMethodName: bazChanged
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: com.sample.FooBar existingName()
+      newMethodName: existingNameChanged
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: com.sample.FooBar oldMethodName()
+      newMethodName: oldMethodNameChanged
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: com.sample.pack1
+      newPackageName: com.sample.pack2
+  - org.openrewrite.text.FindAndReplace:
+      find: eclipse-temurin:17-jdk-jammy
+      replace: eclipse-temurin:21.0.2_13-jdk-jammy
+      filePattern: 'Dockerfile'
+
+---
+
+type: specs.openrewrite.org/v1beta/recipe
+name: com.sample.GradleDependencyRecipe
+displayName: Add Gradle dependency example
+recipeList:
   
+  - org.openrewrite.gradle.AddDependency:
+      groupId: com.google.guava
+      artifactId: guava
+      version: 29.X
+      versionPattern: '-jre'
+      configuration: implementation
+      #onlyIfUsing: org.junit.jupiter.api.*
+      #classifier: test
+      #extension: jar
+      familyPattern: com.fasterxml.jackson*
+      acceptTransitive: true
+  - org.openrewrite.gradle.UpgradeTransitiveDependencyVersion:
+      groupId: org.apache.poi
+      artifactId: poi
+      version: 5.4.0
+      onlyForConfigurations:
+        - implementation

@@ -17,7 +17,7 @@ gradle rewriteRun
 This allows provide additional attributes which required by recipe
 ```yml
 type: specs.openrewrite.org/v1beta/recipe
-name: com.sample.MyTestRecipe
+name: com.sample.MyTestRecipe1
 recipeList:
   - com.sample.r1.ExpandCustomerInfo
   - com.sample.r1.MethodAddRecipe:
@@ -28,9 +28,18 @@ recipeList:
 ```
 ```gradle
 rewrite {
-     activeRecipe("com.sample.MyTestRecipe")
+     activeRecipe("com.sample.MyTestRecipe1")
 }
 ```
 ```bash
 gradle rewriteRun
+```
+
+# To test different recipes
+To run list of recipes add recipe name in activeRecipe(gradle build file).
+List of recipes created in rewrite.yml
+```gradle
+rewrite {
+     activeRecipe("com.sample.MyTestRecipe1")
+}
 ```
