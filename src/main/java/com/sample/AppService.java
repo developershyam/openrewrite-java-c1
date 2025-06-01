@@ -24,6 +24,9 @@ public class AppService {
     /**
      * This method is used to test the old API call.
      */
+    @Deprecated
+    // between lines comment
+    @SuppressWarnings("deprecation")
     public void testAPICAll(){
         this.date = new Date();
         System.out.println("Current date: " + this.date);

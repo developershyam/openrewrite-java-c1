@@ -54,3 +54,5 @@ com.sample.NoExistClass noExistClass;
 ```bash
 gradle rewriteRun -x compileJava
 ```
+If code is valid to java syntax it can build LST without compile and work.
+If code is non-compliance to java compilar then it won't bbuild LST and skip that file/unit. 
