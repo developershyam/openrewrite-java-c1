@@ -56,3 +56,13 @@ gradle rewriteRun -x compileJava
 ```
 If code is valid to java syntax it can build LST without compile and work.
 If code is non-compliance to java compilar then it won't bbuild LST and skip that file/unit. 
+
+# Enable print Tree using debug
+Use System env variable 
+```bash
+# Windows
+set ENABLE_DEBUG=true
+
+#Linux
+export ENABLE_DEBUG=true
+```
