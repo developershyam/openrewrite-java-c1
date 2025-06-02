@@ -56,9 +56,10 @@ rewrite {
      
      // ##### Recipes from root project #####
      // Build declarative recipe in yml using composite recipe
-     //activeRecipe("com.sample.MyTestRecipe1")
-     //activeRecipe("com.sample.MyTestRecipe2")
-     //activeRecipe("com.sample.GradleDependencyRecipe")
+     //activeRecipe("com.sample.MyMethodRecipe")
+     //activeRecipe("com.sample.MyChangeRecipe")
+     //activeRecipe("com.sample.MyFindAndReplaceRecipe")
+     //activeRecipe("com.sample.MyGradleDependencyRecipe")
      
 
 }

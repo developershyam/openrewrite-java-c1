@@ -1,5 +1,5 @@
 type: specs.openrewrite.org/v1beta/recipe
-name: com.sample.MyTestRecipe1
+name: com.sample.MyMethodRecipe
 recipeList:
   - com.sample.r1.CustomerInfoExpandRecipe
   - com.sample.r1.MethodAddRecipe:
@@ -12,7 +12,7 @@ recipeList:
 ---
 
 type: specs.openrewrite.org/v1beta/recipe
-name: com.sample.MyTestRecipe2
+name: com.sample.MyChangeRecipe
 recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: com.sample.User baz(String, int)
@@ -26,15 +26,25 @@ recipeList:
   - org.openrewrite.java.ChangePackage:
       oldPackageName: com.sample.pack1
       newPackageName: com.sample.pack2
-  - org.openrewrite.text.FindAndReplace:
-      find: eclipse-temurin:17-jdk-jammy
-      replace: eclipse-temurin:21.0.2_13-jdk-jammy
-      filePattern: 'Dockerfile'
 
 ---
 
 type: specs.openrewrite.org/v1beta/recipe
-name: com.sample.GradleDependencyRecipe
+name: com.sample.MyFindAndReplaceRecipe
+recipeList:
+  - org.openrewrite.text.FindAndReplace:
+      find: eclipse-temurin:17-jdk-jammy
+      replace: eclipse-temurin:21.0.2_13-jdk-jammy
+      filePattern: 'Dockerfile'
+  - org.openrewrite.text.FindAndReplace:
+      find: // This is before package
+      replace: // This is before package -- updated
+      filePattern: '**/*.java'
+
+---
+
+type: specs.openrewrite.org/v1beta/recipe
+name: com.sample.MyGradleDependencyRecipe
 displayName: Add Gradle dependency example
 recipeList:
   
