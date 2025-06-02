@@ -1,12 +1,12 @@
 type: specs.openrewrite.org/v1beta/recipe
 name: com.sample.MyTestRecipe1
 recipeList:
-  - com.sample.r1.ExpandCustomerInfo
+  - com.sample.r1.CustomerInfoExpandRecipe
   - com.sample.r1.MethodAddRecipe:
-      fullyQualifiedClassName: com.sample.FooBar
+      fullyQualifiedClassName: com.sample.User
       methodName: hello
   - com.sample.r1.MethodAddWithPramRecipe:
-      fullyQualifiedClassName: com.sample.FooBar
+      fullyQualifiedClassName: com.sample.User
       methodName: myTestMethod  
 
 ---
@@ -15,13 +15,13 @@ type: specs.openrewrite.org/v1beta/recipe
 name: com.sample.MyTestRecipe2
 recipeList:
   - org.openrewrite.java.ChangeMethodName:
-      methodPattern: com.sample.FooBar baz(String, int)
+      methodPattern: com.sample.User baz(String, int)
       newMethodName: bazChanged
   - org.openrewrite.java.ChangeMethodName:
-      methodPattern: com.sample.FooBar existingName()
+      methodPattern: com.sample.User existingName()
       newMethodName: existingNameChanged
   - org.openrewrite.java.ChangeMethodName:
-      methodPattern: com.sample.FooBar oldMethodName()
+      methodPattern: com.sample.User oldMethodName()
       newMethodName: oldMethodNameChanged
   - org.openrewrite.java.ChangePackage:
       oldPackageName: com.sample.pack1

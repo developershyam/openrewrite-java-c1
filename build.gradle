@@ -44,10 +44,17 @@ dependencies {
 }
 
 rewrite {
-    //Imperative recipes from custume recipe jar
-     //activeRecipe("com.sample.r1.MethodAddRecipe", "com.sample.r1.ExpandCustomerInfo")
-     //Declarative recipes from custume recipe jar
-     activeRecipe("com.sample.MyTestRecipe11")
+
+     // ##### Recipes from JAR #####
+
+     // Imperative recipes from custume recipe jar
+     activeRecipe("com.sample.r1.MethodAddRecipe", "com.sample.r1.CustomerInfoExpandRecipe")
+
+     // Declarative recipes from custume recipe jar
+     //activeRecipe("com.sample.r1.MyYAMLRecipe")
+     //activeRecipe("com.sample.r1.MyYAMLMethodRecipe")
+     
+     // ##### Recipes from root project #####
      // Build declarative recipe in yml using composite recipe
      //activeRecipe("com.sample.MyTestRecipe1")
      //activeRecipe("com.sample.MyTestRecipe2")
@@ -66,5 +73,14 @@ tasks.test {
         events "passed", "skipped", "failed"
         exceptionFormat "full"
         showStandardStreams = true
+    }
+    // Print a summary of test results after execution
+    doLast {
+        println "==================== TEST SUMMARY ===================="
+        println "Total tests: ${test.testResult.resultType}"
+        println "Passed: ${test.testResult.successfulTestCount}"
+        println "Failed: ${test.testResult.failedTestCount}"
+        println "Skipped: ${test.testResult.skippedTestCount}"
+        println "======================================================"
     }
 }

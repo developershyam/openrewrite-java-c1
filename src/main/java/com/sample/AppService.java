@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component;
 public class AppService {
 
     /**
-     * This is before field restServiceOld.
+     * This is before field testAnotherClass.
      */
-    private RestServiceOld restServiceOld;
+    private TestAnotherClass testAnotherClass;
 
     // This is before field date
     private Date date;
 
     // This is before constructor AppService
-    public AppService(RestServiceOld restServiceOld) {
-        this.restServiceOld = restServiceOld;
+    public AppService(TestAnotherClass testAnotherClass) {
+        this.testAnotherClass = testAnotherClass;
         this.date = new Date();
     }
 
@@ -30,7 +30,7 @@ public class AppService {
     public void testAPICAll(){
         this.date = new Date();
         System.out.println("Current date: " + this.date);
-        System.out.println(this.restServiceOld.oldCall());
+        System.out.println(this.testAnotherClass.anotherMethod("Testing"));
     }
     
 }
