@@ -48,7 +48,7 @@ rewrite {
      // ##### Recipes from JAR #####
 
      // Imperative recipes from custume recipe jar
-     activeRecipe("com.sample.r1.MethodAddRecipe", "com.sample.r1.CustomerInfoExpandRecipe")
+     //activeRecipe("com.sample.r1.MethodAddRecipe", "com.sample.r1.CustomerInfoExpandRecipe")
 
      // Declarative recipes from custume recipe jar
      //activeRecipe("com.sample.r1.MyYAMLRecipe")
@@ -61,12 +61,22 @@ rewrite {
      //activeRecipe("com.sample.MyFindAndReplaceRecipe")
      //activeRecipe("com.sample.MyGradleDependencyRecipe")
      
-
+     //activeRecipe("com.sample.ReplaceRestAPI1WithRestAPI2")
+     activeRecipe("com.sample.UpgradeJaxbBindingsXml")
+     
+     
 }
 
 configurations.all {
-   exclude group: "com.google.code.findbugs", module: "jsr305"
-   exclude group: "org.apache.commons", module: "commons-math3"
+    exclude group: "com.google.code.findbugs", module: "jsr305"
+    exclude group: "org.apache.commons", module: "commons-math3"
+
+    resolutionStrategy {
+        force "org.springframework:spring-core:6.1.12"
+        force "org.springframework:spring-context:6.1.12"
+        force "org.junit.jupiter:junit-jupiter-api:5.12.0"
+        // Add more dependencies to force as needed
+    }
 }
 
 tasks.test {

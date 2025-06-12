@@ -65,3 +65,37 @@ recipeList:
       version: 5.4.0
       onlyForConfigurations:
         - implementation
+
+---
+
+type: specs.openrewrite.org/v1beta/recipe
+name: com.sample.ReplaceRestAPI1WithRestAPI2
+recipeList:
+    - org.openrewrite.java.ChangeMethodName:
+        methodPattern: com.sample.api1.RestAPI1 getData(String)
+        newMethodName: getDataNew
+        ignoreDefinition: true
+    - org.openrewrite.java.ChangeType:
+        oldFullyQualifiedTypeName: com.sample.api1.RestAPI1
+        newFullyQualifiedTypeName: com.sample.api2.RestAPI2
+        ignoreDefinition: true
+    
+---
+
+type: specs.openrewrite.org/v1beta/recipe
+name: com.sample.UpgradeJaxbBindingsXml
+recipeList:
+  - org.openrewrite.xml.ChangeTagAttribute:
+      elementName: jxb:bindings
+      attributeName: version
+      newValue: "3.0"
+  - org.openrewrite.xml.ChangeTagAttribute:
+      elementName: jxb:bindings
+      attributeName: xmlns:jxb
+      oldValue: "http://java.sun.com/xml/ns/jaxb"
+      newValue: "https://jakarta.ee/xml/ns/jaxb"
+  - org.openrewrite.xml.ChangeTagAttribute:
+      elementName: jxb:bindings
+      attributeName: xmlns:xjc
+      oldValue: http://java.sun.com/xml/ns/jaxb/xjc
+      newValue: https://jakarta.ee/xml/ns/jaxb/xjc
