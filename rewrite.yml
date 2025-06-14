@@ -99,3 +99,14 @@ recipeList:
       attributeName: xmlns:xjc
       oldValue: http://java.sun.com/xml/ns/jaxb/xjc
       newValue: https://jakarta.ee/xml/ns/jaxb/xjc
+
+---
+
+type: specs.openrewrite.org/v1beta/recipe
+name: com.sample.DeleteMethodRecipe
+displayName: Delete callAPI() method from Service
+description: Deletes the callAPI() method from com.sample.Service.
+recipeList:
+  - com.sample.r1.MethodDeleteRecipe:
+      fullyQualifiedClassName: com.sample.Service
+      methodName: callAPI
